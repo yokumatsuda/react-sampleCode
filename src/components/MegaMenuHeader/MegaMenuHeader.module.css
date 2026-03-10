@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+.siteHeader {
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  z-index: 100;
+}
+
+.headerInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88px;
+}
+
+.logo {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.globalNav {
+  margin-left: auto;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navItem {
+  display: flex;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 500;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.navLink:hover {
+  background: #eaf4ff;
+}
+
+/* hover中のナビ項目の背景色も維持 */
+.siteHeader:has(.navAbout:hover) .navAbout .navLink,
+.siteHeader:has(.megaAbout:hover) .navAbout .navLink,
+.siteHeader:has(.navJoin:hover) .navJoin .navLink,
+.siteHeader:has(.megaJoin:hover) .navJoin .navLink,
+.siteHeader:has(.navDocs:hover) .navDocs .navLink,
+.siteHeader:has(.megaDocs:hover) .navDocs .navLink {
+  background: #eaf4ff;
+}
+
+/* 共通メガメニュー */
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #dceaf7;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.megaInner {
+  width: 100%;
+}
+
+.megaTop {
+  display: flex;
+  background: #fff;
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.megaTopLink {
+  flex: 1;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #111;
+  text-decoration: none;
+  border-right: 1px solid #d7d7d7;
+  transition: background 0.25s ease;
+}
+
+.megaTopLink:last-child {
+  border-right: none;
+}
+
+.megaTopLink:hover {
+  background: #f4faff;
+}
+
+.megaBottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+  padding: 24px 32px 28px;
+}
+
+.megaSubLink {
+  position: relative;
+  padding-left: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #111;
+  text-decoration: none;
+}
+
+.megaSubLink::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #2b6cb0;
+}
+
+.megaSubLink:hover {
+  text-decoration: underline;
+}
+
+/* 私たちについて */
+.siteHeader:has(.navAbout:hover) .megaAbout,
+.siteHeader:has(.megaAbout:hover) .megaAbout {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 入会案内 */
+.siteHeader:has(.navJoin:hover) .megaJoin,
+.siteHeader:has(.megaJoin:hover) .megaJoin {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 各種資料・動画 */
+.siteHeader:has(.navDocs:hover) .megaDocs,
+.siteHeader:has(.megaDocs:hover) .megaDocs {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.siteHeader h1 {
+  color: #111;
+}
